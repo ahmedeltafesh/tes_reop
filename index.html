@@ -1,223 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FIFA World Cup 2026 — Matches & Results</title>
-  <style>
-    :root{
-      --bg:#07111f; --panel:#0d1b2d; --panel2:#12243b; --text:#f4f7fb;
-      --muted:#9fb0c5; --accent:#39d98a; --accent2:#36a3ff; --line:#203650;
-      --danger:#ff6b6b; --gold:#ffd166;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#06101d,#0a1626 45%,#06101d);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-    .hero{
-      min-height:430px;display:flex;align-items:flex-end;
-      background:
-        linear-gradient(180deg,rgba(4,12,24,.05),rgba(4,12,24,.94)),
-        url("https://npr.brightspotcdn.com/dims4/default/00b1195/2147483647/strip/true/crop/4924x3282+0+0/resize/1760x1174!/quality/90/?url=http://npr-brightspot.s3.amazonaws.com/39/6a/141eb86e4fb28837660156be14d7/kansas-city-stadium-world-cup-2.jpg")
-        center/cover;
-    }
-    .hero-inner{width:min(1180px,92%);margin:auto;padding:70px 0 45px}
-    .badge{display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(57,217,138,.15);border:1px solid rgba(57,217,138,.35);color:#7ff0b5;font-size:13px;font-weight:700;letter-spacing:.4px}
-    h1{font-size:clamp(38px,6vw,72px);line-height:.98;margin:18px 0 14px;max-width:800px}
-    .hero p{max-width:720px;color:#d4dfec;font-size:18px;line-height:1.6}
-    .container{width:min(1180px,92%);margin:0 auto}
-    .toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
-    button,.filter{
-      border:1px solid var(--line);background:var(--panel);color:var(--text);
-      padding:11px 16px;border-radius:10px;cursor:pointer;font-weight:600
-    }
-    button.active{background:var(--accent);color:#06131d;border-color:var(--accent)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:linear-gradient(145deg,var(--panel),#0a1727);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 12px 30px rgba(0,0,0,.15)}
-    .card h2{margin:0 0 14px;font-size:19px}
-    .date{color:var(--muted);font-size:13px;margin-bottom:14px}
-    .match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding:13px 0;border-top:1px solid rgba(255,255,255,.07)}
-    .team{display:flex;align-items:center;gap:9px;font-weight:650}
-    .away{justify-content:flex-end;text-align:right}
-    .flag{font-size:25px}
-    .score{font-size:20px;font-weight:800;min-width:54px;text-align:center}
-    .venue{color:var(--muted);font-size:12px;margin-top:4px}
-    .status{font-size:10px;color:#72e8a8;text-transform:uppercase;letter-spacing:.8px}
-    .section-title{display:flex;justify-content:space-between;align-items:end;margin:45px 0 16px}
-    .section-title h2{font-size:28px;margin:0}.section-title span{color:var(--muted)}
-    .standings{overflow:auto}
-    table{width:100%;border-collapse:collapse;min-width:560px}
-    th,td{padding:13px 12px;text-align:left;border-bottom:1px solid var(--line)}
-    th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.7px}
-    .rank{color:var(--gold);font-weight:800}
-    .qualified{border-left:3px solid var(--accent)}
-    .knockout{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .round{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
-    .round h3{font-size:14px;color:#b9c9da;margin:0 0 10px}
-    .fixture{padding:12px 0;border-top:1px solid rgba(255,255,255,.07)}
-    .fixture:first-of-type{border-top:0}
-    .fixture div{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
-    .champion{border:1px solid rgba(255,209,102,.35);background:linear-gradient(145deg,#211e12,#0d1b2d);text-align:center;padding:26px;border-radius:18px;margin:18px 0 45px}
-    .trophy{font-size:54px}
-    footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
-    @media(max-width:900px){.grid{grid-template-columns:1fr 1fr}.knockout{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.grid,.knockout{grid-template-columns:1fr}h1{font-size:43px}.hero{min-height:390px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FIFA World Cup 2026 | Matches & Results</title>
+<style>
+:root{--bg:#07131f;--card:#0d1d2b;--card2:#12283a;--text:#f7fbff;--muted:#91a6b9;--green:#35e58b;--blue:#3ca7ff;--gold:#ffd166;--line:#20394e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 10% 0%,#3ca7ff16,transparent 28%),radial-gradient(circle at 90% 25%,#35e58b12,transparent 25%)}
+.container{width:min(1220px,92%);margin:auto}
+header{min-height:410px;display:flex;align-items:end;background:linear-gradient(180deg,#020a1208,#020a12ed),url("https://npr.brightspotcdn.com/dims4/default/00b1195/2147483647/strip/true/crop/4924x3282+0+0/resize/1760x1174!/quality/90/?url=http://npr-brightspot.s3.amazonaws.com/39/6a/141eb86e4fb28837660156be14d7/kansas-city-stadium-world-cup-2.jpg") center/cover}
+nav{position:absolute;top:0;left:0;right:0;padding:18px 0}.navbar{display:flex;justify-content:space-between}.logo{font-weight:900}.logo span{color:var(--green)}.navlinks{display:flex;gap:20px;font-size:14px}.navlinks a{color:#d0deea;text-decoration:none}.navlinks a:hover{color:var(--green)}
+.hero{padding:65px 0 45px}.badge{display:inline-block;padding:8px 13px;border-radius:30px;background:#35e58b1f;border:1px solid #35e58b55;color:#7df3b3;font-size:12px;font-weight:800}h1{font-size:clamp(40px,6vw,70px);line-height:.98;max-width:800px;margin:18px 0 12px}.hero p{font-size:17px;line-height:1.6;color:#d5e1ec;max-width:700px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:700px;margin-top:22px}.stat{background:#05101ca8;border:1px solid #ffffff1a;border-radius:12px;padding:12px}.stat b{display:block;font-size:20px}.stat small{color:var(--muted)}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:28px 0}button,.search{border:1px solid var(--line);background:var(--card);color:var(--text);padding:10px 15px;border-radius:9px;font-weight:700}.search{margin-left:auto;outline:none;min-width:190px}button{cursor:pointer}button.active,button:hover{background:var(--green);border-color:var(--green);color:#04131c}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:42px 0 15px}.section-title h2{margin:0;font-size:27px}.section-title span{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:linear-gradient(145deg,var(--card),#091724);border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 16px 40px #0003;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#31536d}.match-head{display:flex;justify-content:space-between;margin-bottom:12px}.group-label{font-size:11px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:1px}.status{font-size:10px;color:#77efad;text-transform:uppercase;font-weight:800}.date{font-size:12px;color:var(--muted);margin-bottom:14px}.match{display:grid;grid-template-columns:1fr auto 1fr;gap:9px;align-items:center}.team{display:flex;align-items:center;gap:8px;font-weight:750}.away{justify-content:flex-end;text-align:right}.flag{font-size:24px}.score{font-size:21px;font-weight:900;min-width:58px;text-align:center}.venue{border-top:1px solid #ffffff0f;margin-top:14px;padding-top:10px;color:var(--muted);font-size:11px}.hidden{display:none!important}
+.table-wrap{border:1px solid var(--line);border-radius:15px;overflow:auto;background:var(--card)}table{width:100%;border-collapse:collapse;min-width:650px}th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left}th{font-size:11px;color:var(--muted);text-transform:uppercase}tr:last-child td{border:0}.qualified{border-left:3px solid var(--green)}.rank{font-weight:900;color:var(--gold)}
+.knockout{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.round{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px}.round h3{margin:0 0 9px;color:#b8cad8;font-size:13px}.fixture{padding:10px 0;border-top:1px solid #ffffff0f}.fixture:first-of-type{border-top:0}.fixture div{display:flex;justify-content:space-between;padding:3px 0;font-size:13px}
+.champion{margin:35px 0 42px;padding:27px;text-align:center;border:1px solid #ffd1664d;border-radius:16px;background:linear-gradient(145deg,#211e13,#0c1b28)}.trophy{font-size:48px}.champion p{color:#cbd8e3}footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:12px}
+@media(max-width:950px){.grid{grid-template-columns:1fr 1fr}.knockout{grid-template-columns:1fr 1fr}}@media(max-width:650px){.navlinks{display:none}.grid,.knockout,.stats{grid-template-columns:1fr}.hero{padding-top:100px}h1{font-size:44px}.section-title{align-items:start;flex-direction:column;gap:8px}.search{margin-left:0;width:100%}}
+</style>
 </head>
 <body>
-
-<header class="hero">
-  <div class="hero-inner">
-    <span class="badge">FIFA WORLD CUP 2026</span>
-    <h1>Matches, Results & Tournament Highlights</h1>
-    <p>Example football dashboard for the 2026 FIFA World Cup in Canada, Mexico and the United States.</p>
-  </div>
+<header>
+<nav><div class="container navbar"><div class="logo">WORLD<span>26</span> ⚽</div><div class="navlinks"><a href="#matches">Matches</a><a href="#groups">Groups</a><a href="#knockout">Knockout</a></div></div></nav>
+<div class="container hero"><span class="badge">● TOURNAMENT COMPLETE · 2026</span><h1>FIFA World Cup<br>2026</h1><p>Matches, scores, group standings and knockout results in one clean football dashboard.</p><div class="stats"><div class="stat"><b>48</b><small>Teams</small></div><div class="stat"><b>104</b><small>Matches</small></div><div class="stat"><b>16</b><small>Host cities</small></div></div></div>
 </header>
-
 <main class="container">
-  <div class="toolbar">
-    <button class="active" onclick="filterMatches('all',this)">All Matches</button>
-    <button onclick="filterMatches('group',this)">Group Stage</button>
-    <button onclick="filterMatches('knockout',this)">Knockout</button>
-  </div>
-
-  <section id="matches">
-    <div class="section-title">
-      <h2>Featured Results</h2><span>2026 Tournament</span>
-    </div>
-
-    <div class="grid">
-      <article class="card match-card group">
-        <h2>Group G</h2>
-        <div class="date">15 June 2026 · Seattle</div>
-        <div class="match">
-          <div class="team"><span class="flag">🇧🇪</span> Belgium</div>
-          <div class="score">1–1</div>
-          <div class="team away">Egypt <span class="flag">🇪🇬</span></div>
-        </div>
-        <div class="venue">Seattle Stadium · Full Time</div>
-      </article>
-
-      <article class="card match-card group">
-        <h2>Group G</h2>
-        <div class="date">21 June 2026 · Vancouver</div>
-        <div class="match">
-          <div class="team"><span class="flag">🇳🇿</span> New Zealand</div>
-          <div class="score">1–3</div>
-          <div class="team away">Egypt <span class="flag">🇪🇬</span></div>
-        </div>
-        <div class="venue">BC Place Vancouver · Full Time</div>
-      </article>
-
-      <article class="card match-card group">
-        <h2>Group G</h2>
-        <div class="date">26 June 2026 · Seattle</div>
-        <div class="match">
-          <div class="team"><span class="flag">🇪🇬</span> Egypt</div>
-          <div class="score">1–1</div>
-          <div class="team away">IR Iran <span class="flag">🇮🇷</span></div>
-        </div>
-        <div class="venue">Seattle Stadium · Full Time</div>
-      </article>
-
-      <article class="card match-card knockout">
-        <h2>Round of 32</h2>
-        <div class="date">3 July 2026 · Dallas</div>
-        <div class="match">
-          <div class="team"><span class="flag">🇦🇺</span> Australia</div>
-          <div class="score">1–1</div>
-          <div class="team away">Egypt <span class="flag">🇪🇬</span></div>
-        </div>
-        <div class="venue">Egypt won 4–2 on penalties</div>
-      </article>
-
-      <article class="card match-card knockout">
-        <h2>Round of 16</h2>
-        <div class="date">7 July 2026 · Atlanta</div>
-        <div class="match">
-          <div class="team"><span class="flag">🇦🇷</span> Argentina</div>
-          <div class="score">3–2</div>
-          <div class="team away">Egypt <span class="flag">🇪🇬</span></div>
-        </div>
-        <div class="venue">Atlanta Stadium · Full Time</div>
-      </article>
-
-      <article class="card match-card knockout">
-        <h2>Final</h2>
-        <div class="date">19 July 2026 · New York/New Jersey</div>
-        <div class="match">
-          <div class="team"><span class="flag">🇪🇸</span> Spain</div>
-          <div class="score">1–0</div>
-          <div class="team away">Argentina <span class="flag">🇦🇷</span></div>
-        </div>
-        <div class="venue">Spain won · FIFA World Cup 2026 Final</div>
-      </article>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">
-      <h2>Group G — Example Standings</h2><span>After group stage</span>
-    </div>
-    <div class="card standings">
-      <table>
-        <thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead>
-        <tbody>
-          <tr class="qualified"><td class="rank">1</td><td>🇧🇪 Belgium</td><td>3</td><td>1</td><td>2</td><td>0</td><td>+4</td><td><b>5</b></td></tr>
-          <tr class="qualified"><td class="rank">2</td><td>🇪🇬 Egypt</td><td>3</td><td>1</td><td>2</td><td>0</td><td>+1</td><td><b>5</b></td></tr>
-          <tr><td>3</td><td>🇮🇷 IR Iran</td><td>3</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
-          <tr><td>4</td><td>🇳🇿 New Zealand</td><td>3</td><td>0</td><td>0</td><td>3</td><td>-5</td><td>0</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">
-      <h2>Knockout Stage</h2><span>Selected results</span>
-    </div>
-    <div class="knockout">
-      <div class="round"><h3>Round of 32</h3>
-        <div class="fixture"><div>🇦🇷 Argentina <b>3</b></div><div>🇨🇻 Cabo Verde <b>2</b></div></div>
-        <div class="fixture"><div>🇦🇺 Australia <b>1</b></div><div>🇪🇬 Egypt <b>1 (2–4)</b></div></div>
-      </div>
-      <div class="round"><h3>Round of 16</h3>
-        <div class="fixture"><div>🇦🇷 Argentina <b>3</b></div><div>🇪🇬 Egypt <b>2</b></div></div>
-        <div class="fixture"><div>🇺🇸 USA <b>1</b></div><div>🇧🇪 Belgium <b>4</b></div></div>
-      </div>
-      <div class="round"><h3>Quarter-finals</h3>
-        <div class="fixture"><div>🇦🇷 Argentina <b>3</b></div><div>🇨🇭 Switzerland <b>1</b></div></div>
-        <div class="fixture"><div>🇪🇸 Spain <b>2</b></div><div>🇧🇪 Belgium <b>1</b></div></div>
-      </div>
-      <div class="round"><h3>Final</h3>
-        <div class="fixture"><div>🇪🇸 Spain <b>1</b></div><div>🇦🇷 Argentina <b>0</b></div></div>
-        <div class="status">Champion · Spain</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="champion">
-    <div class="trophy">🏆</div>
-    <h2>FIFA World Cup 2026 Champion</h2>
-    <p><strong>🇪🇸 Spain</strong> — Final: Spain 1–0 Argentina</p>
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    Demo UI. Tournament results in this example are based on the published FIFA 2026 match results.
-    Replace the sample cards with your own API/database if you want live updates.
-  </div>
-</footer>
-
+<div class="toolbar"><button class="active" onclick="filterMatches('all',this)">All</button><button onclick="filterMatches('group',this)">Group Stage</button><button onclick="filterMatches('knockout',this)">Knockout</button><input id="search" class="search" placeholder="Search team..." oninput="searchMatches()"></div>
+<section id="matches"><div class="section-title"><h2>Match Results</h2><span id="count">24 matches shown</span></div><div class="grid" id="matchGrid">
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group A</span><span class="status">Full Time</span></div><div class="date">11 Jun · Mexico City</div><div class="match"><div class="team">🇲🇽 Mexico</div><b class="score">2–0</b><div class="team away">South Africa 🇿🇦</div></div><div class="venue">Mexico City Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group A</span><span class="status">Full Time</span></div><div class="date">11 Jun · Guadalajara</div><div class="match"><div class="team">🇰🇷 Korea Republic</div><b class="score">2–1</b><div class="team away">Czechia 🇨🇿</div></div><div class="venue">Guadalajara Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group A</span><span class="status">Full Time</span></div><div class="date">18 Jun · Atlanta</div><div class="match"><div class="team">🇨🇿 Czechia</div><b class="score">1–1</b><div class="team away">South Africa 🇿🇦</div></div><div class="venue">Atlanta Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group A</span><span class="status">Full Time</span></div><div class="date">18 Jun · Guadalajara</div><div class="match"><div class="team">🇲🇽 Mexico</div><b class="score">1–0</b><div class="team away">Korea Republic 🇰🇷</div></div><div class="venue">Guadalajara Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group B</span><span class="status">Full Time</span></div><div class="date">18 Jun · Los Angeles</div><div class="match"><div class="team">🇨🇭 Switzerland</div><b class="score">4–1</b><div class="team away">Bosnia and Herzegovina 🇧🇦</div></div><div class="venue">Los Angeles Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group B</span><span class="status">Full Time</span></div><div class="date">18 Jun · Vancouver</div><div class="match"><div class="team">🇨🇦 Canada</div><b class="score">6–0</b><div class="team away">Qatar 🇶🇦</div></div><div class="venue">BC Place Vancouver</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group B</span><span class="status">Full Time</span></div><div class="date">24 Jun · Vancouver</div><div class="match"><div class="team">🇨🇭 Switzerland</div><b class="score">2–1</b><div class="team away">Canada 🇨🇦</div></div><div class="venue">BC Place Vancouver</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group B</span><span class="status">Full Time</span></div><div class="date">24 Jun · Seattle</div><div class="match"><div class="team">🇧🇦 Bosnia and Herzegovina</div><b class="score">3–1</b><div class="team away">Qatar 🇶🇦</div></div><div class="venue">Seattle Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group C</span><span class="status">Full Time</span></div><div class="date">19 Jun · Philadelphia</div><div class="match"><div class="team">🇧🇷 Brazil</div><b class="score">3–0</b><div class="team away">Haiti 🇭🇹</div></div><div class="venue">Philadelphia Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group C</span><span class="status">Full Time</span></div><div class="date">19 Jun · Boston</div><div class="match"><div class="team">🏴 Scotland</div><b class="score">0–1</b><div class="team away">Morocco 🇲🇦</div></div><div class="venue">Boston Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group C</span><span class="status">Full Time</span></div><div class="date">24 Jun · Miami</div><div class="match"><div class="team">🏴 Scotland</div><b class="score">0–3</b><div class="team away">Brazil 🇧🇷</div></div><div class="venue">Miami Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group C</span><span class="status">Full Time</span></div><div class="date">24 Jun · Atlanta</div><div class="match"><div class="team">🇲🇦 Morocco</div><b class="score">4–2</b><div class="team away">Haiti 🇭🇹</div></div><div class="venue">Atlanta Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group D</span><span class="status">Full Time</span></div><div class="date">19 Jun · Seattle</div><div class="match"><div class="team">🇺🇸 USA</div><b class="score">2–0</b><div class="team away">Australia 🇦🇺</div></div><div class="venue">Seattle Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group E</span><span class="status">Full Time</span></div><div class="date">25 Jun · Philadelphia</div><div class="match"><div class="team">🇨🇼 Curaçao</div><b class="score">0–2</b><div class="team away">Côte d'Ivoire 🇨🇮</div></div><div class="venue">Philadelphia Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group F</span><span class="status">Full Time</span></div><div class="date">25 Jun · Dallas</div><div class="match"><div class="team">🇯🇵 Japan</div><b class="score">1–1</b><div class="team away">Sweden 🇸🇪</div></div><div class="venue">Dallas Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group H</span><span class="status">Full Time</span></div><div class="date">21 Jun · Atlanta</div><div class="match"><div class="team">🇪🇸 Spain</div><b class="score">4–0</b><div class="team away">Saudi Arabia 🇸🇦</div></div><div class="venue">Atlanta Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group I</span><span class="status">Full Time</span></div><div class="date">16 Jun · New York</div><div class="match"><div class="team">🇫🇷 France</div><b class="score">3–1</b><div class="team away">Senegal 🇸🇳</div></div><div class="venue">New York New Jersey Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group J</span><span class="status">Full Time</span></div><div class="date">16 Jun · Kansas City</div><div class="match"><div class="team">🇦🇷 Argentina</div><b class="score">3–0</b><div class="team away">Algeria 🇩🇿</div></div><div class="venue">Kansas City Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group G · Egypt</span><span class="status">Full Time</span></div><div class="date">15 Jun · Seattle</div><div class="match"><div class="team">🇧🇪 Belgium</div><b class="score">1–1</b><div class="team away">Egypt 🇪🇬</div></div><div class="venue">Seattle Stadium</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group G · Egypt</span><span class="status">Full Time</span></div><div class="date">21 Jun · Vancouver</div><div class="match"><div class="team">🇳🇿 New Zealand</div><b class="score">1–3</b><div class="team away">Egypt 🇪🇬</div></div><div class="venue">BC Place Vancouver</div></article>
+<article class="card match-card group"><div class="match-head"><span class="group-label">Group G · Egypt</span><span class="status">Full Time</span></div><div class="date">26 Jun · Seattle</div><div class="match"><div class="team">🇪🇬 Egypt</div><b class="score">1–1</b><div class="team away">IR Iran 🇮🇷</div></div><div class="venue">Seattle Stadium</div></article>
+<article class="card match-card knockout"><div class="match-head"><span class="group-label">Round of 32</span><span class="status">Full Time</span></div><div class="date">28 Jun · Los Angeles</div><div class="match"><div class="team">🇿🇦 South Africa</div><b class="score">0–1</b><div class="team away">Canada 🇨🇦</div></div><div class="venue">Los Angeles Stadium</div></article>
+<article class="card match-card knockout"><div class="match-head"><span class="group-label">Round of 16</span><span class="status">Full Time</span></div><div class="date">4 Jul · Philadelphia</div><div class="match"><div class="team">🇵🇾 Paraguay</div><b class="score">0–1</b><div class="team away">France 🇫🇷</div></div><div class="venue">Philadelphia Stadium</div></article>
+<article class="card match-card knockout"><div class="match-head"><span class="group-label">Quarter-final</span><span class="status">Full Time</span></div><div class="date">10 Jul · Los Angeles</div><div class="match"><div class="team">🇪🇸 Spain</div><b class="score">2–1</b><div class="team away">Belgium 🇧🇪</div></div><div class="venue">Los Angeles Stadium</div></article>
+<article class="card match-card knockout"><div class="match-head"><span class="group-label">Semi-final</span><span class="status">Full Time</span></div><div class="date">14 Jul · Dallas</div><div class="match"><div class="team">🇫🇷 France</div><b class="score">0–2</b><div class="team away">Spain 🇪🇸</div></div><div class="venue">Dallas Stadium</div></article>
+<article class="card match-card knockout"><div class="match-head"><span class="group-label">Final</span><span class="status">Full Time</span></div><div class="date">19 Jul · New York/New Jersey</div><div class="match"><div class="team">🇪🇸 Spain</div><b class="score">1–0</b><div class="team away">Argentina 🇦🇷</div></div><div class="venue">New York New Jersey Stadium</div></article>
+</div></section>
+<section id="groups"><div class="section-title"><h2>Group G Standings</h2><span>Egypt's group</span></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
+<tr class="qualified"><td class="rank">1</td><td>🇧🇪 Belgium</td><td>3</td><td>1</td><td>2</td><td>0</td><td>+4</td><td><b>5</b></td></tr>
+<tr class="qualified"><td class="rank">2</td><td>🇪🇬 Egypt</td><td>3</td><td>1</td><td>2</td><td>0</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>3</td><td>🇮🇷 IR Iran</td><td>3</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
+<tr><td>4</td><td>🇳🇿 New Zealand</td><td>3</td><td>0</td><td>0</td><td>3</td><td>-5</td><td>0</td></tr>
+</tbody></table></div></section>
+<section id="knockout"><div class="section-title"><h2>Knockout Bracket</h2><span>Selected results</span></div><div class="knockout">
+<div class="round"><h3>Round of 32</h3><div class="fixture"><div>🇿🇦 South Africa <b>0</b></div><div>🇨🇦 Canada <b>1</b></div></div><div class="fixture"><div>🇦🇺 Australia <b>1</b></div><div>🇪🇬 Egypt <b>1 (2–4)</b></div></div></div>
+<div class="round"><h3>Round of 16</h3><div class="fixture"><div>🇵🇾 Paraguay <b>0</b></div><div>🇫🇷 France <b>1</b></div></div><div class="fixture"><div>🇨🇦 Canada <b>0</b></div><div>🇲🇦 Morocco <b>3</b></div></div></div>
+<div class="round"><h3>Semi-finals</h3><div class="fixture"><div>🇫🇷 France <b>0</b></div><div>🇪🇸 Spain <b>2</b></div></div></div>
+<div class="round"><h3>Final</h3><div class="fixture"><div>🇪🇸 Spain <b>1</b></div><div>🇦🇷 Argentina <b>0</b></div></div><div class="status">🏆 Spain · Champion</div></div>
+</div></section>
+<div class="champion"><div class="trophy">🏆</div><h2>FIFA World Cup 2026 Champion</h2><p><strong>🇪🇸 Spain</strong> — Spain defeated Argentina 1–0 in the final.</p></div>
+</main><footer><div class="container">FIFA World Cup 2026 dashboard · Single-file HTML · CSS · JavaScript</div></footer>
 <script>
-  function filterMatches(type, button){
-    document.querySelectorAll('.toolbar button').forEach(b=>b.classList.remove('active'));
-    button.classList.add('active');
-    document.querySelectorAll('.match-card').forEach(card=>{
-      card.style.display = type === 'all' || card.classList.contains(type) ? '' : 'none';
-    });
-  }
-</script>
-</body>
-</html>
-second change
+let currentFilter='all';
+function filterMatches(type,btn){currentFilter=type;document.querySelectorAll('.toolbar button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');searchMatches()}
+function searchMatches(){const q=document.getElementById('search').value.toLowerCase().trim();let n=0;document.querySelectorAll('.match-card').forEach(c=>{let g=c.classList.contains('group'),k=c.classList.contains('knockout'),ok=currentFilter==='all'||(currentFilter==='group'&&g)||(currentFilter==='knockout'&&k);let hit=!q||c.innerText.toLowerCase().includes(q);let show=ok&&hit;c.classList.toggle('hidden',!show);if(show)n++});document.getElementById('count').textContent=n+' matches shown'}
+</script></body></html>
